@@ -1,4 +1,4 @@
-package myy803.springboot.sb_tutorial_4_thymeleaf_security.service;
+package se_project.service;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import myy803.springboot.sb_tutorial_4_thymeleaf_security.dao.CourseDAO;
-import myy803.springboot.sb_tutorial_4_thymeleaf_security.entity.Course;
+import se_project.dao.CourseDAO;
+import se_project.entity.Course;
 
 @Service
 public class CourseServiceImpl implements CourseService {

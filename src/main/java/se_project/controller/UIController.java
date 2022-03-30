@@ -1,4 +1,4 @@
-package myy803.springboot.sb_tutorial_4_thymeleaf_security.controller;
+package se_project.controller;
 
 import java.util.List;
 
@@ -19,11 +19,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import myy803.springboot.sb_tutorial_4_thymeleaf_security.entity.Course;
-import myy803.springboot.sb_tutorial_4_thymeleaf_security.entity.Instructor;
-import myy803.springboot.sb_tutorial_4_thymeleaf_security.entity.StudentRegistration;
-import myy803.springboot.sb_tutorial_4_thymeleaf_security.service.CourseService;
-import myy803.springboot.sb_tutorial_4_thymeleaf_security.service.StudentRegistrationService;
+import se_project.entity.Course;
+import se_project.entity.Instructor;
+import se_project.entity.StudentRegistration;
+import se_project.service.CourseService;
+import se_project.service.StudentRegistrationService;
 
 @Controller
 @RequestMapping("/dashboard")

@@ -1,4 +1,4 @@
-package myy803.springboot.sb_tutorial_4_thymeleaf_security;
+package se_project;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

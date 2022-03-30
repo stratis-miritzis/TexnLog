@@ -1,4 +1,4 @@
-package myy803.springboot.sb_tutorial_4_thymeleaf_security.entity;
+package se_project.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
