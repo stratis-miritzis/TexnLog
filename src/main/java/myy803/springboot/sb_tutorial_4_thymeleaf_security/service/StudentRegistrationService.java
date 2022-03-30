@@ -2,6 +2,7 @@ package myy803.springboot.sb_tutorial_4_thymeleaf_security.service;
 
 import java.util.List;
 
+import myy803.springboot.sb_tutorial_4_thymeleaf_security.entity.Course;
 import myy803.springboot.sb_tutorial_4_thymeleaf_security.entity.StudentRegistration;
 
 public interface StudentRegistrationService {
@@ -13,5 +14,7 @@ public interface StudentRegistrationService {
 	public void save(StudentRegistration theStudentRegistration);
 	
 	public void deleteById(int theId);
+	
+	public List<StudentRegistration> findByCourseId(int theId);
 	
 }

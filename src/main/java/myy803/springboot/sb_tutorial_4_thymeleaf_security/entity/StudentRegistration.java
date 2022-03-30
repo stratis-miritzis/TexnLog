@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="studentRegistration")
+@Table(name="studentRegistrations")
 public class StudentRegistration {
 
 	// define fields
@@ -22,23 +22,36 @@ public class StudentRegistration {
 	private String name;
 	
 	@Column(name="year_of_registration")
-	private String yearOfRegistration;
+	private int yearOfRegistration;
 	
 	@Column(name="semester")
-	private String semester;
+	private int semester;
 	
 	@Column(name="course_id")
-	private String courseId;
+	private int courseId;
+	
+	@Column(name="grade")
+	private double grade;
+
+	@Column(name="project_grade")
+	private double projectGrade;
+	
+	@Column(name="exam_grade")
+	private double examGrade;
 	
 	public StudentRegistration() {
 	}
 
-	public StudentRegistration(String name, String yearOfRegistration, String semester, String courseId) {
+	public StudentRegistration(String name, int yearOfRegistration, int semester, int courseId, double grade,
+			double projectGrade, double examGrade) {
 		super();
 		this.name = name;
 		this.yearOfRegistration = yearOfRegistration;
 		this.semester = semester;
 		this.courseId = courseId;
+		this.grade = grade;
+		this.projectGrade = projectGrade;
+		this.examGrade = examGrade;
 	}
 
 	public int getId() {
@@ -57,39 +70,61 @@ public class StudentRegistration {
 		this.name = name;
 	}
 
-	public String getYearOfRegistration() {
+	public int getYearOfRegistration() {
 		return yearOfRegistration;
 	}
 
-	public void setYearOfRegistration(String yearOfRegistration) {
+	public void setYearOfRegistration(int yearOfRegistration) {
 		this.yearOfRegistration = yearOfRegistration;
 	}
 
-	public String getSemester() {
+	public int getSemester() {
 		return semester;
 	}
 
-	public void setSemester(String semester) {
+	public void setSemester(int semester) {
 		this.semester = semester;
 	}
 	
-	public String getCourseId() {
+	public int getCourseId() {
 		return courseId;
 	}
 	
-	public void setCourseId(String courseId) {
+	public void setCourseId(int courseId) {
 		this.courseId = courseId;
+	}
+
+	public double getGrade() {
+		return grade;
+	}
+
+	public void setGrade(double grade) {
+		this.grade = grade;
+	}
+
+	public double getProjectGrade() {
+		return projectGrade;
+	}
+
+	public void setProjectGrade(double projectGrade) {
+		this.projectGrade = projectGrade;
+	}
+
+	public double getExamGrade() {
+		return examGrade;
+	}
+
+	public void setExamGrade(double examGrade) {
+		this.examGrade = examGrade;
 	}
 
 	@Override
 	public String toString() {
 		return "StudentRegistration [id=" + id + ", name=" + name + ", yearOfRegistration=" + yearOfRegistration
-				+ ", semester=" + semester + ", courseId=" + courseId + "]";
+				+ ", semester=" + semester + ", courseId=" + courseId + ", grade=" + grade + ", projectGrade="
+				+ projectGrade + ", examGrade=" + examGrade + "]";
 	}
-
-
-	
-	
+		
 }
 
 

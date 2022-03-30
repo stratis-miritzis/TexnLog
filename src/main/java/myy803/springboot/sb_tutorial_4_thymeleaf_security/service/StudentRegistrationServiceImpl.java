@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import myy803.springboot.sb_tutorial_4_thymeleaf_security.dao.CourseDAO;
 import myy803.springboot.sb_tutorial_4_thymeleaf_security.dao.StudentRegistrationDAO;
+import myy803.springboot.sb_tutorial_4_thymeleaf_security.entity.Course;
 import myy803.springboot.sb_tutorial_4_thymeleaf_security.entity.StudentRegistration;
 
 @Service
@@ -42,6 +44,19 @@ public class StudentRegistrationServiceImpl implements StudentRegistrationServic
 		else {
 			// we didn't find the StudentRegistration
 			throw new RuntimeException("Did not find StudentRegistration id - " + theId);
+		}
+	}
+	
+	@Transactional
+	public List<StudentRegistration> findByCourseId(int theId) {
+		List<StudentRegistration> result = studentRegistrationRepository.findByCourseId(theId);
+				
+		if (result != null ) {
+			return result;
+		}
+		else {
+			// we didn't find the CourseId
+			throw new RuntimeException("Did not find courseId - " + theId);
 		}
 	}
 

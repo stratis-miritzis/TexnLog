@@ -56,6 +56,19 @@ public class CourseServiceImpl implements CourseService {
 	public void deleteById(int theId) {
 		courseRepository.deleteById(theId);
 	}
+
+	@Override
+	public List<Course> findByInstructor(String name) {
+		List<Course> result = courseRepository.findByInstructor(name);
+		
+		if (result != null ) {
+			return result;
+		}
+		else {
+			// we didn't find the employee
+			throw new RuntimeException("Did not find instructor name - " + name);
+		}
+	}
 }
 
 

@@ -14,4 +14,6 @@ public interface CourseService {
 	
 	public void deleteById(int theId);
 	
+	public List<Course> findByInstructor(String name);
+	
 }
