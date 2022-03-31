@@ -24,6 +24,15 @@ CREATE TABLE `student_registrations` (
   `year_of_registration` int NOT NULL,
   `semester` int NOT NULL,
   `course_id` int NOT NULL,
-  PRIMARY KEY (`id`),
+  `grade` double DEFAULT 0,
+  `project_grade` double DEFAULT 0,
+  `exam_grade` double DEFAULT 0,
+  PRIMARY KEY (`id`, `course_id`),
   FOREIGN KEY (`course_id`) REFERENCES `courses` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `student_registrations` VALUES 
+	(1,'sotblad', 2018, 7, 1, default, default, default),
+    (2,'stratis', 2018, 6, 1, default, default, default),
+    (2,'jim', 2018, 7, 2, default, default, default),
+    (3,'stratis', 2018, 7, 1, default, default, default);

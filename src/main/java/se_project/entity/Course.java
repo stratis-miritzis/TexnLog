@@ -1,4 +1,4 @@
-package myy803.springboot.sb_tutorial_4_thymeleaf_security.entity;
+package se_project.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,11 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="course")
+@Table(name="courses")
 public class Course {
-
-	// define fields
-	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
@@ -28,13 +25,16 @@ public class Course {
 	private String syllabus;
 	
 	@Column(name="year")
-	private String year;
+	private int year;
 	
 	@Column(name="semester")
-	private String semester;
-	// define constructors
+	private int semester;
 
-	public Course(String name, String instructor, String syllabus, String year, String semester) {
+	public Course() {
+		
+	}
+
+	public Course(String name, String instructor, String syllabus, int year, int semester) {
 		super();
 		this.name = name;
 		this.instructor = instructor;
@@ -75,19 +75,19 @@ public class Course {
 		this.syllabus = syllabus;
 	}
 
-	public String getYear() {
+	public int getYear() {
 		return year;
 	}
 
-	public void setYear(String year) {
+	public void setYear(int year) {
 		this.year = year;
 	}
 
-	public String getSemester() {
+	public int getSemester() {
 		return semester;
 	}
 
-	public void setSemester(String semester) {
+	public void setSemester(int semester) {
 		this.semester = semester;
 	}
 

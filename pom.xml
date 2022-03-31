@@ -10,11 +10,11 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	
-	<groupId>myy803.springboot</groupId>
-	<artifactId>sb_tutorial_4_thymeleaf_security</artifactId>
+	<groupId>SE_Project_4336_4444_4456</groupId>
+	<artifactId>SE_Project_4336_4444_4456</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>sb_tutorial_4_thymeleaf_security</name>
-	<description>Demo project for Spring Boot</description>
+	<name>SE_Project_4336_4444_4456</name>
+	<description>Software Engineering Project, Group: 4336, 4444, 4456</description>
 	
 	<properties>
 		<java.version>1.8</java.version>

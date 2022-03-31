@@ -1,8 +1,8 @@
-package myy803.springboot.sb_tutorial_4_thymeleaf_security.service;
+package se_project.service;
 
 import java.util.List;
 
-import myy803.springboot.sb_tutorial_4_thymeleaf_security.entity.Course;
+import se_project.entity.Course;
 
 public interface CourseService {
 
@@ -13,5 +13,7 @@ public interface CourseService {
 	public void save(Course theCourse);
 	
 	public void deleteById(int theId);
+	
+	public List<Course> findByInstructor(String name);
 	
 }
