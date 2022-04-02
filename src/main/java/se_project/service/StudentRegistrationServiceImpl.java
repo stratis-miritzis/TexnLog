@@ -47,6 +47,15 @@ public class StudentRegistrationServiceImpl implements StudentRegistrationServic
 		}
 	}
 	
+	
+	@Override
+	@Transactional
+	public List<StudentRegistration> findAllById(int theId) {
+		List<StudentRegistration> result = studentRegistrationRepository.findAllById(theId);
+		return result;
+		
+	}
+	
 	@Transactional
 	public List<StudentRegistration> findByCourseId(int theId) {
 		List<StudentRegistration> result = studentRegistrationRepository.findByCourseId(theId);

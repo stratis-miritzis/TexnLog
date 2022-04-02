@@ -6,7 +6,6 @@ public class AccountId implements Serializable {
     /**
 	 * 
 	 */
-	private static final long serialVersionUID = 271767987177583490L;
 
 	private int id;
 

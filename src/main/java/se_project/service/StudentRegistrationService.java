@@ -9,6 +9,8 @@ public interface StudentRegistrationService {
 
 	public List<StudentRegistration> findAll();
 	
+	public List<StudentRegistration> findAllById(int theId);
+	
 	public StudentRegistration findById(int theId);
 	
 	public void save(StudentRegistration theStudentRegistration);

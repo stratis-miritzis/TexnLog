@@ -138,18 +138,26 @@ public class UIController {
 	    return "redirect:/dashboard/viewCourse?course="+student.getCourseId();
 	}
 	
+	@GetMapping("/editStudent")
+	public String editStudent(@ModelAttribute("student")int studentID, Model model) {
+		List<StudentRegistration> students = studentRegistrationService.findAllById(studentID);
+		System.out.println(students.get(0).toString());
+		model.addAttribute("student", students.get(0));
+		 return "dashboard/editStudent";
+	}
+	
 	@PostMapping("/updateStudent")
-	public String updateStudent(@ModelAttribute("course")Course course, Model model) {
-		System.out.println(course.toString());
-		Course tempCourse = courseService.findById(course.getId());
-		tempCourse.setName(course.getName());
-		tempCourse.setSyllabus(course.getSyllabus());
-		tempCourse.setYear(course.getYear());
-		tempCourse.setSemester(course.getSemester());
-		courseService.save(tempCourse);
+	public String updateStudent(@ModelAttribute("student")StudentRegistration student, Model model) {
+		List<StudentRegistration> students = studentRegistrationService.findAllById(student.getId());
 		
 		
-	    return "redirect:myCourses";
+		students.forEach((i) -> i.setName(student.getName()));
+		students.forEach((i) -> i.setYearOfRegistration(student.getYearOfRegistration()));
+		students.forEach((i) -> i.setSemester(student.getSemester()));
+		students.forEach((i) -> studentRegistrationService.save(i));
+		
+		
+		 return "dashboard/succesfulEdit";
 	}
 	
 	
