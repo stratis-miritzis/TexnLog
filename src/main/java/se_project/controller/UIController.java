@@ -133,12 +133,23 @@ public class UIController {
 		studentRegistrationService.save(student);
 		System.out.println(model);
 		
-		
 		List<StudentRegistration> studentsList = studentRegistrationService.findByCourseId(student.getCourseId());
 		
-		
-		
 	    return "redirect:/dashboard/viewCourse?course="+student.getCourseId();
+	}
+	
+	@PostMapping("/updateStudent")
+	public String updateStudent(@ModelAttribute("course")Course course, Model model) {
+		System.out.println(course.toString());
+		Course tempCourse = courseService.findById(course.getId());
+		tempCourse.setName(course.getName());
+		tempCourse.setSyllabus(course.getSyllabus());
+		tempCourse.setYear(course.getYear());
+		tempCourse.setSemester(course.getSemester());
+		courseService.save(tempCourse);
+		
+		
+	    return "redirect:myCourses";
 	}
 	
 	

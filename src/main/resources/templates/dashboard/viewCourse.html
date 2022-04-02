@@ -60,8 +60,10 @@
                     <td>
                     <form action="#" th:action="@{deleteStudent(course=${course.id},student=${student.id})}" method="post" style="display: inline-block;">
 	                    	<button class="btn btn-danger"><i class="fa fa-trash"></i></button>
-	                    </form>
+	                </form>
+	                <a class="btn btn-info" th:href="@{updateStudent(course=${course.id})}"  role="button"><i class="fa fa-external-link"></i></a>
 	                </td>
+	                
                 </tr>
             </tbody>
         </table>

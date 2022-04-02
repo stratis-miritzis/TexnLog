@@ -28,6 +28,13 @@ public class EmployeeApplicationSecurityConfig extends WebSecurityConfigurerAdap
 			     .build();
 		auth.inMemoryAuthentication().withUser(user1);
 		
+		// password "1" is externally encrypted to the following
+		UserDetails user2 = User.withUsername("tsiatouxas")
+			     .password("$2a$12$f5B6lmmfVIiIv4vmcxn9Oeebpu9gtleAF1zASX9zr9OSnzfxZngu6")
+			     .roles("EMPLOYEE")
+			     .build();
+		auth.inMemoryAuthentication().withUser(user2);
+		
 	}
 	
 	@Bean
