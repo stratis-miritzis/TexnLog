@@ -5,16 +5,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.Table;
 
 @Entity
+@IdClass(AccountId.class)
 @Table(name="studentRegistrations")
 public class StudentRegistration {
 
 	// define fields
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
 	
@@ -27,6 +28,7 @@ public class StudentRegistration {
 	@Column(name="semester")
 	private int semester;
 	
+	@Id
 	@Column(name="course_id")
 	private int courseId;
 	
@@ -38,6 +40,8 @@ public class StudentRegistration {
 	
 	@Column(name="exam_grade")
 	private double examGrade;
+	
+
 	
 	public StudentRegistration() {
 	}

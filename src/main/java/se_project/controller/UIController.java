@@ -1,6 +1,9 @@
 package se_project.controller;
 
+
+
 import java.util.List;
+
 
 import java.util.logging.Logger;
 
@@ -38,6 +41,15 @@ public class UIController {
 	
 	public UIController(StudentRegistrationService theStudentRegistrationService, CourseService theCourseService) {
 		courseService = theCourseService;
+	}
+	
+	@GetMapping("")
+	public String dashboard(Model model) {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		
+	    model.addAttribute("instructor", authentication.getName());
+
+	    return "dashboard/dashboard";
 	}
 
 	@GetMapping("/myCourses")
@@ -96,4 +108,46 @@ public class UIController {
 	    return "redirect:myCourses";
 	}
 	
+	@GetMapping("/viewCourse")
+	public String viewCourse(@ModelAttribute("course")int courseId, Model model) {
+		Course course = courseService.findById(courseId);
+		List<StudentRegistration>  students = studentRegistrationService.findByCourseId(courseId);
+		model.addAttribute("course",course);
+		model.addAttribute("students",students);
+	    return "dashboard/viewCourse";
+	}
+	
+	@GetMapping("/addStudent")
+	public String addStudent(@ModelAttribute("course")int courseId, Model model) {
+		StudentRegistration student = new StudentRegistration();
+		model.addAttribute("courseId", courseId);
+		model.addAttribute("student", student);
+		
+	    return "dashboard/addStudent";
+	}
+	
+	@PostMapping("/postStudent")
+	public String postStudent(@ModelAttribute("student")StudentRegistration student, Model model) {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		System.out.println(student.toString());
+		studentRegistrationService.save(student);
+		System.out.println(model);
+		
+		
+		List<StudentRegistration> studentsList = studentRegistrationService.findByCourseId(student.getCourseId());
+		
+		
+		
+	    return "redirect:/dashboard/viewCourse?course="+student.getCourseId();
+	}
+	
+	
+	
+	
 }
+
+
+
+
+
+
