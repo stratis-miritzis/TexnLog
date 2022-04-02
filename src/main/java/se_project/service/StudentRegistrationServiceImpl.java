@@ -80,6 +80,12 @@ public class StudentRegistrationServiceImpl implements StudentRegistrationServic
 	public void deleteById(int theId) {
 		studentRegistrationRepository.deleteById(theId);
 	}
+	
+	@Override
+	@Transactional
+	public void deleteByIdAndCourseId(int theId,int theCourseId) {
+		studentRegistrationRepository.deleteByIdAndCourseId(theId,theCourseId);
+	}
 }
 
 

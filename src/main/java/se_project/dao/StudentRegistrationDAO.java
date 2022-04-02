@@ -17,5 +17,7 @@ public interface StudentRegistrationDAO extends JpaRepository<StudentRegistratio
 	
 	public List<StudentRegistration> findByCourseId(int theId);
 	
+	public void deleteByIdAndCourseId(int theId,int theCourseId);
+	
 		
 }

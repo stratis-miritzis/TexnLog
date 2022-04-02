@@ -19,4 +19,6 @@ public interface StudentRegistrationService {
 	
 	public List<StudentRegistration> findByCourseId(int theId);
 	
+	public void deleteByIdAndCourseId(int theId,int theCourseId);
+	
 }

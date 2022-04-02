@@ -160,7 +160,13 @@ public class UIController {
 		 return "dashboard/succesfulEdit";
 	}
 	
-	
+	@PostMapping("/deleteStudent")
+	public String deleteStudent(@ModelAttribute("course")int courseId,@ModelAttribute("student")int studentId, Model model) {
+		
+		studentRegistrationService.deleteByIdAndCourseId(studentId,courseId);
+
+		return "redirect:/dashboard/viewCourse?course="+courseId;
+	}
 	
 	
 }
